@@ -727,7 +727,6 @@ namespace WidgetBuilder
             td = new HtmlTableCell();
             tr.Cells.Add(td);
 
-            
             foreach(string radioButtonText in strCheckBoxList.Split(',')){
                 RadioButton rb = new RadioButton();
                 rb.Text = radioButtonText;
@@ -740,13 +739,8 @@ namespace WidgetBuilder
                     rb.Checked = true;
                 }
                 td.Controls.Add(rb);
-
             }
-
-
-          
         }
-
 
         protected void addListOption(HtmlTable prevalueTable, string title, List<ListItem> list, string className)
         {

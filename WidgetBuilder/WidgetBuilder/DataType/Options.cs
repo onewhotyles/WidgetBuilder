@@ -131,7 +131,6 @@ namespace WidgetBuilder
         public bool enableSearch = true;
         public bool enableSearchAutoSuggest = true;
         public string searchMethod = "selected";
-
     }
 
     public class MapOptions

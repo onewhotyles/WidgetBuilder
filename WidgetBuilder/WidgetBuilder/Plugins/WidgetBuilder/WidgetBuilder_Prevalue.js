@@ -236,10 +236,9 @@ $(function(){
             options.add('hideEdit', $table.find('.widgetHideEdit input').is(':checked'));
             options.add('hideOpen', $table.find('.widgetHideOpen input').is(':checked'));
             options.add('hidePixlr', $table.find('.widgetHidePixlr input').is(':checked'));
-			
-			options.add('enableSearch', $table.find('.widgetEnableSearch input').is(':checked'));
-			options.add('enableSearchAutoSuggest', $table.find('.widgetEnableSearchAutoSuggest input').is(':checked'));
-			options.add('searchMethod', $table.find('.widgetSearchMethod input:radio[name=widgetSearchMethod]:checked').val());
+            options.add('enableSearch', $table.find('.widgetEnableSearch input').is(':checked'));
+            options.add('enableSearchAutoSuggest', $table.find('.widgetEnableSearchAutoSuggest input').is(':checked'));
+            options.add('searchMethod', $table.find('.widgetSearchMethod input:radio[name=widgetSearchMethod]:checked').val());
             elements.push(new element($table.attr('type'), options.get()).value);
             break;
             
