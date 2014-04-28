@@ -369,6 +369,19 @@ namespace WidgetBuilder
             addTextBoxOption(prevalueTable, "Description", options.description, "widgetDescription", true);
             addTextBoxOption(prevalueTable, "Classes (CSV)", options.classes, "widgetClasses");
 
+            if (options.emph == "on")
+            {
+                addCheckBoxOption(prevalueTable, "Enable Cell Emphasis?", true, "widgetEmph");
+
+            }
+            else
+            {
+                addCheckBoxOption(prevalueTable, "Enable Cell Emphasis?", false, "widgetEmph");
+            }
+
+          
+            
+
             /////////////////////////
 
             addButtons(tr);

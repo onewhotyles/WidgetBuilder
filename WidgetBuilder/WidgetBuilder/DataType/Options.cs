@@ -60,7 +60,7 @@ namespace WidgetBuilder
         public string elementName = "";
         public string className = "widgetSpreadsheet";
         public string description = "";
-
+        public string emph ="";
         public string classes = "spreadsheet";
     }
 

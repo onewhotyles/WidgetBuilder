@@ -367,7 +367,7 @@ namespace WidgetBuilder
             {
                 return;
             }
-
+           
             //deserialize element prevalues
             SpreadsheetOptions prevalues = jsonSerializer.Deserialize<SpreadsheetOptions>(schemaElement.prevalues);
 
@@ -383,17 +383,18 @@ namespace WidgetBuilder
             }
             catch (Exception e)
             {
-                Log.Add(LogTypes.Custom, 0, "WidgetBuilder=>"+e.Message);
+                Log.Add(LogTypes.Custom, 0, "WidgetBuilder=>" + e.Message);
                 dataExtractor.Value = "<table class=''><thead></thead><tbody></tbody></table>";
             }
 
-            SpreadsheetDataEditor spreadSheet = new SpreadsheetDataEditor(dataExtractor, HttpUtility.UrlDecode(prevalues.classes) + "|");
+            SpreadsheetDataEditor spreadSheet = new SpreadsheetDataEditor(dataExtractor, HttpUtility.UrlDecode(prevalues.classes) + "| |" + HttpUtility.UrlDecode(prevalues.emph) + "|");
 
             HtmlGenericControl spreadsheetWrapper = new HtmlGenericControl();
             spreadsheetWrapper.Controls.Add(spreadSheet);
             spreadsheetWrapper.TagName = "div";
             spreadsheetWrapper.Attributes["class"] = "widgetSpreadsheet " + prevalues.className;
             controlWrapper.Controls.Add(spreadSheet);
+           
         }
 
         public void mediapicker(HtmlGenericControl widgetElementsDiv, WidgetElement schemaElement, XmlNode widgetNode)
