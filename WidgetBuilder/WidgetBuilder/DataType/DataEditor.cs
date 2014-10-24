@@ -123,6 +123,8 @@ namespace WidgetBuilder
         
         protected void buildControls()
         {
+
+            
             //string jqueryUI = string.Format("<script src=\"{0}\" ></script>", "/umbraco_client/ui/jqueryui.js");
             //ScriptManager.RegisterClientScriptBlock(Page, typeof(Widget_Builder_DataEditor), "jqueryUI", jqueryUI, false);
 
@@ -363,11 +365,13 @@ namespace WidgetBuilder
 
         public void spreadsheet(HtmlGenericControl widgetElementsDiv, WidgetElement schemaElement, XmlNode widgetNode)
         {
+
+           
             if (!Widget_Builder.HasSpreadsheet)
             {
                 return;
             }
-           
+            
             //deserialize element prevalues
             SpreadsheetOptions prevalues = jsonSerializer.Deserialize<SpreadsheetOptions>(schemaElement.prevalues);
 

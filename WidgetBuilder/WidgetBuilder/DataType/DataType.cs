@@ -29,6 +29,8 @@ namespace WidgetBuilder
 
         public static bool HasSpreadsheet
         {
+
+        
             get {
                 var thisType = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                                      from type in assembly.GetTypes()
@@ -36,6 +38,7 @@ namespace WidgetBuilder
                                      select type).FirstOrDefault();
                 return (thisType != null);
             }
+        
         }
 
         public static string GetAssemblyVersion

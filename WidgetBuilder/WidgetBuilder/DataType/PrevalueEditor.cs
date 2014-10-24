@@ -55,6 +55,8 @@ namespace WidgetBuilder
 
         protected override void OnInit(EventArgs e)
         {
+
+            
             base.OnInit(e);
 
             saveBox = new TextBox();
@@ -77,6 +79,7 @@ namespace WidgetBuilder
 
         protected override void Render(HtmlTextWriter writer)
         {
+            
             base.Render(writer);
 
             Widget_Builder_Options renderingOptions;
@@ -98,9 +101,9 @@ namespace WidgetBuilder
             {
                 renderingOptions = savedOptions;
             }
-
+            
             renderToolbar(writer);
-
+            
             renderGrid(writer, renderingOptions);
 
             renderGlobalOptions(writer, renderingOptions);
@@ -116,10 +119,18 @@ namespace WidgetBuilder
             toolbar.Text += "<div><a href='#' type='textarea'><img src='/umbraco/plugins/WidgetBuilder/images/textarea.png' alt='' title='Textarea'/><span>Textarea</span></a></div>";
             toolbar.Text += "<div><a href='#' type='tinymce'><img src='/umbraco/plugins/WidgetBuilder/images/tinymce.png' alt='' title='TinyMCE'/><span>TinyMCE</span></a></div>";
             toolbar.Text += "<div><a href='#' type='list'><img src='/umbraco/plugins/WidgetBuilder/images/list.png' alt='' title='List'/><span>List</span></a></div>";
-
-            if (Widget_Builder.HasSpreadsheet)
+            try
             {
-                toolbar.Text += "<div><a href='#' type='spreadsheet'><img src='/umbraco/plugins/WidgetBuilder/images/spreadsheet.png' alt='' title='Spreadsheet'/><span>Spreadsheet</span></a></div>";
+                if (Widget_Builder.HasSpreadsheet)
+                {
+                    toolbar.Text += "<div><a href='#' type='spreadsheet'><img src='/umbraco/plugins/WidgetBuilder/images/spreadsheet.png' alt='' title='Spreadsheet'/><span>Spreadsheet</span></a></div>";
+                }
+            }
+            catch (Exception ex)
+            {
+                var typeLoadException = ex as ReflectionTypeLoadException;
+                var loaderExceptions = typeLoadException.LoaderExceptions;
+                HttpContext.Current.Response.Write(loaderExceptions.GetValue(0));
             }
             
             toolbar.Text += "<div><a href='#' type='mediapicker'><img src='/umbraco/plugins/WidgetBuilder/images/mediapicker.png' alt='' title='MediaPicker'/><span>Media Picker</span></a></div>";
@@ -346,6 +357,7 @@ namespace WidgetBuilder
 
         public void spreadsheet(WidgetElement element, HtmlTable gridTable)
         {
+           
             //deserialize the prevalues into options
             SpreadsheetOptions options;
             if (element.prevalues != "")

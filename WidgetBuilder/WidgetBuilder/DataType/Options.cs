@@ -61,6 +61,7 @@ namespace WidgetBuilder
         public string className = "widgetSpreadsheet";
         public string description = "";
         public string emph ="";
+        public string renderTable = "";
         public string classes = "spreadsheet";
     }
 
