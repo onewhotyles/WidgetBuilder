@@ -349,6 +349,36 @@ namespace WidgetBuilder
             addTextBoxOption(prevalueTable, "Class", options.className, "widgetClass");
             addTextBoxOption(prevalueTable, "Description", options.description, "widgetDescription", true);
             addTextBoxOption(prevalueTable, "Max Indents", options.maxIndents.ToString(), "widgetMaxIndents");
+            addTextBoxOption(prevalueTable, "CSS Styles", options.cssStyle, "widgetCssStyles");
+
+            /////////////////////////
+
+            addButtons(tr);
+        }
+
+        public void dropdown(WidgetElement element, HtmlTable gridTable)
+        {
+            //deserialize the prevalues into options
+            DropdownOptions options;
+            if (element.prevalues != "")
+            {
+                options = jsonSerializer.Deserialize<DropdownOptions>(element.prevalues);
+            } else {
+                options = new DropdownOptions();
+            }
+
+            HtmlTableRow tr = createGridTableRow(gridTable, element.type, "Dropdown");
+
+            /////////////////////////
+            //prevalues
+            HtmlTable prevalueTable = createPrevalueTable(tr);
+
+            addTextBoxOption(prevalueTable, "Title", options.title, "widgetTitle");
+            addTextBoxOption(prevalueTable, "Element Name", options.elementName, "widgetElementName");
+            addTextBoxOption(prevalueTable, "Class", options.className, "widgetClass");
+            addTextBoxOption(prevalueTable, "Description", options.description, "widgetDescription", true);
+            addCheckBoxOption(prevalueTable, "Use 'Select'", options.useSelect, "widgetUseSelect");
+            addListOption(prevalueTable, "Options", options.items, "widgetListTable");
 
             /////////////////////////
 
@@ -473,37 +503,6 @@ namespace WidgetBuilder
             addCheckBoxOption(prevalueTable, "Enable Search Auto Suggest?", options.enableSearchAutoSuggest, "widgetEnableSearchAutoSuggest");
             addRadioButtonList(prevalueTable, "Search Under Selected Node?", "all,selected", options.searchMethod, "widgetSearchMethod");
             
-            /////////////////////////
-
-            addButtons(tr);
-        }
-
-        public void dropdown(WidgetElement element, HtmlTable gridTable)
-        {
-            //deserialize the prevalues into options
-            DropdownOptions options;
-            if (element.prevalues != "")
-            {
-                options = jsonSerializer.Deserialize<DropdownOptions>(element.prevalues);
-            }
-            else
-            {
-                options = new DropdownOptions();
-            }
-
-            HtmlTableRow tr = createGridTableRow(gridTable, element.type, "Dropdown");
-
-            /////////////////////////
-            //prevalues
-            HtmlTable prevalueTable = createPrevalueTable(tr);
-
-            addTextBoxOption(prevalueTable, "Title", options.title, "widgetTitle");
-            addTextBoxOption(prevalueTable, "Element Name", options.elementName, "widgetElementName");
-            addTextBoxOption(prevalueTable, "Class", options.className, "widgetClass");
-            addTextBoxOption(prevalueTable, "Description", options.description, "widgetDescription", true);
-            addCheckBoxOption(prevalueTable, "Use 'Select'", options.useSelect, "widgetUseSelect");
-            addListOption(prevalueTable, "Options", options.items, "widgetListTable");
-
             /////////////////////////
 
             addButtons(tr);

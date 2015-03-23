@@ -506,7 +506,9 @@ namespace WidgetBuilder
 
             TextBoxListOptions listOptions = new TextBoxListOptions();
             listOptions.indentedLimit = prevalues.maxIndents.ToString();
+            listOptions.cssStyle = prevalues.cssStyle;
             TextBoxList_DataEditor list = new TextBoxList_DataEditor(dataExtractor, listOptions);
+            HtmlGenericControl listWrapper = new HtmlGenericControl();
 
             //get the value from the XML
             try
@@ -517,10 +519,9 @@ namespace WidgetBuilder
             }
             catch (Exception e)
             {
-                dataExtractor.Value = "<list><item indent='0'/></list>";
+                dataExtractor.Value = "<list><indentedliststyle></indentedliststyle><item indent='0'/></list>";
             }
 
-            HtmlGenericControl listWrapper = new HtmlGenericControl();
             listWrapper.Controls.Add(list);
             listWrapper.TagName = "div";
             listWrapper.Attributes["class"] = "widgetList " + prevalues.className;

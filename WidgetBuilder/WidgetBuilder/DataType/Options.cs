@@ -52,6 +52,8 @@ namespace WidgetBuilder
         public string description = "";
 
         public int maxIndents = 1;
+        public string cssStyle = "";
+        public List<ListItem> items = new List<ListItem>(){new ListItem()};
     }
 
     public class SpreadsheetOptions
