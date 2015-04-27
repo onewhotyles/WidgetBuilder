@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="WidgetBuilder.asmx.cs" Class="widget_builder.WidgetBuilder" %>
+﻿<%@ WebService Language="C#" CodeBehind="WidgetBuilder.asmx.cs" Class="WidgetBuilder.WidgetBuilderService" %>
