@@ -421,6 +421,15 @@ namespace WidgetBuilder
                 addCheckBoxOption(prevalueTable, "Enable Cell Emphasis?", false, "widgetEmph");
             }
 
+            if (options.cult == "on")
+            {
+                addCheckBoxOption(prevalueTable, "US Culture?", true, "widgetCult");
+
+            }
+            else
+            {
+                addCheckBoxOption(prevalueTable, "US Culture?", false, "widgetCult");
+            }
           
             
 

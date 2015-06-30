@@ -391,7 +391,7 @@ namespace WidgetBuilder
                 dataExtractor.Value = "<table class=''><thead></thead><tbody></tbody></table>";
             }
 
-            SpreadsheetDataEditor spreadSheet = new SpreadsheetDataEditor(dataExtractor, HttpUtility.UrlDecode(prevalues.classes) + "| |" + HttpUtility.UrlDecode(prevalues.emph) + "|");
+            SpreadsheetDataEditor spreadSheet = new SpreadsheetDataEditor(dataExtractor, HttpUtility.UrlDecode(prevalues.classes) + "| |" + HttpUtility.UrlDecode(prevalues.emph) + "|" + HttpUtility.UrlDecode(prevalues.cult) + "|");
 
             HtmlGenericControl spreadsheetWrapper = new HtmlGenericControl();
             spreadsheetWrapper.Controls.Add(spreadSheet);
