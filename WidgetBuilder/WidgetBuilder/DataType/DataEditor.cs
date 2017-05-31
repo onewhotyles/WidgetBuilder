@@ -76,7 +76,7 @@ namespace WidgetBuilder
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-
+            try { 
             instanceNodeID=((Widget_Builder_Default_Data)savedData).DataTypeDefinitionId;
             dataTypeDefinition = DataTypeDefinition.GetAll().Where(d =>d.DataType != null && d.DataType.DataTypeDefinitionId == instanceNodeID).First();
 
@@ -108,6 +108,13 @@ namespace WidgetBuilder
             wrapperDiv.Attributes["class"] = Regex.Replace(this.dataTypeDefinition.Text, @"[^a-zA-z0-9]", "") + " widgetWrapperDiv " + hideWidgetClass;
             wrapperDiv.Attributes["widgetMaxWidgets"] = savedOptions.maxWidgets.ToString();
             ContentTemplateContainer.Controls.Add(wrapperDiv);
+                }
+            catch (ArgumentException err)
+            {
+                wrapperDiv.TagName = "div";
+                wrapperDiv.InnerText = err.ToString();
+                ContentTemplateContainer.Controls.Add(wrapperDiv);
+            }
         }
 
         protected override void OnLoad(EventArgs e)
